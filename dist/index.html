@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Gem Calc Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+<link rel='stylesheet' href='https://bootswatch.com/4/lumen/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Gem Reference & Budget Calc</h1>
+      <p class="lead">
+        Only buy greens if needed to make a blue; buying 8 for one blue will cost more than just buying one blue directly (ex. 8 greens @ 52,427 silver = 419,416 silver which is slightly more expensive 1 blue @ 403,309 silver)
+      </p>
+      <p class="lead">Diamond price includes cost of grinders
+        <p>
+      <p class="lead"><em>Actual silver price is approximate and fluctuates in game</em>
+        <p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link text-white active" id="moonstone-tab" data-toggle="tab" href="#moonstone" role="tab" aria-controls="moonstone" aria-selected="true">Moonstone</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-danger text-white" id="dragoneye-tab" data-toggle="tab" href="#dragoneye" role="tab" aria-controls="dragoneye" aria-selected="false">Dragoneye</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-primary text-white" id="riverheart-tab" data-toggle="tab" href="#riverheart" role="tab" aria-controls="riverheart" aria-selected="false">Riverheart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-success text-white" id="jade-tab" data-toggle="tab" href="#jade" role="tab" aria-controls="jade" aria-selected="false">Jade</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-warning text-white" id="raystone-tab" data-toggle="tab" href="#raystone" role="tab" aria-controls="raystone" aria-selected="false">Raystone</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="moonstone" role="tabpanel" aria-labelledby="moonstone-tab"></div>
+        <div class="tab-pane fade" id="dragoneye" role="tabpanel" aria-labelledby="dragoneye-tab"></div>
+        <div class="tab-pane fade" id="riverheart" role="tabpanel" aria-labelledby="riverheart-tab"></div>
+        <div class="tab-pane fade" id="jade" role="tabpanel" aria-labelledby="jade-tab"></div>
+        <div class="tab-pane fade" id="raystone" role="tabpanel" aria-labelledby="raystone-tab"></div>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Lv</th>
+                <th scope="col">1 Green</th>
+                <th scope="col">1 Blue</th>
+                <th scope="col">1 Purple</th>
+                <th scope="col">1 Diamond</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id='lv20row'>
+                <th scope="row">20</th>
+                <td id="lv20Green">#</td>
+                <td id="lv20Blue">#</td>
+                <td id="lv20Purple">#</td>
+                <td id="lv20Diamond">#</td>
+              </tr>
+              <tr id='lv30row'>
+                <th scope="row">30</th>
+                <td id="lv30Green">#</td>
+                <td id="lv30Blue">#</td>
+                <td id="lv30Purple">#</td>
+                <td id="lv30Diamond">#</td>
+              </tr>
+              <tr id='lv40row'>
+                <th scope="row">40</th>
+                <td id="lv40Green">#</td>
+                <td id="lv40Blue">#</td>
+                <td id="lv40Purple">#</td>
+                <td id="lv40Diamond">#</td>
+              </tr>
+              <tr id='lv50row'>
+                <th scope="row">50</th>
+                <td id="lv50Green">#</td>
+                <td id="lv50Blue">#</td>
+                <td id="lv50Purple">#</td>
+                <td id="lv50Diamond">#</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col'>
+      <h2>Calculate Silver Needed</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Current # Greens</label>
+          <input type="text" class="form-control" id="txtGreens" placeholder="Example input" value="0">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Current # Blues</label>
+          <input type="text" class="form-control" id="txtBlues" placeholder="Another input" value="0">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Current # Purples</label>
+          <input type="text" class="form-control" id="txtPurples" placeholder="Another input" value="0">
+        </div>
+        <div class="row">
+        <div class='col' id='col20'>
+          <button type="button" id='btn20' class="btn btn-secondary btn-lg btn-block">lv20</button>
+        </div>
+        <div class='col' id='col30'>
+          <button type="button" id='btn30' class="btn btn-secondary btn-lg btn-block">lv30</button>
+        </div>
+        <div class='col' id='col40'>
+          <button type="button" id='btn40' class="btn btn-secondary btn-lg btn-block">lv40</button>
+        </div>
+        <div class='col' id='col50'>
+          <button type="button" id='btn50' class="btn btn-secondary btn-lg btn-block">lv50</button>
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class="col-md-6">     
+      <div class="row">
+        <div class="col">
+          What to buy for Diamond...
+          <div class="table-responsive mt-2">
+            <table class="table table-sm">
+              <tbody>
+                <tr class='table-success'>
+                  <th scope="col" colspan="2">Greens needed & total</th>
+                </tr>
+                <tr>
+                  <th scope="row" id="greenNeeded">#</th>
+                  <td id="greenTotal">#</td>
+                </tr>
+                <tr class='table-primary'>
+                  <th scope="col" colspan="2">Blues needed & total</th>
+                </tr>
+                <tr>
+                  <th scope="row" id="blueNeeded">#</th>
+                  <td id="blueTotal">#</td>
+                </tr>
+                <tr class='table-secondary'>
+                  <th scope="col" colspan="2">Grinders needed & total</th>
+                </tr>
+                <tr>
+                  <th scope="row" id="grinderNeeded">#</th>
+                  <td id="grinderTotal">#</td>
+                </tr>
+                <tr class='table-warning'>
+                  <th scope="col" colspan="2">Total Cost</th>
+                </tr>
+                <tr>
+                  <th scope="row" colspan="2" id="total">2</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

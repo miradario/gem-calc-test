@@ -1,0 +1,10 @@
+#moonstone-tab {
+  background-color: #8a25ba !important;
+
+  &:hover {
+    background-color: rgb(109, 29, 147) !important;
+  }
+}
+.nav-link.active{
+  border-bottom-color: #212529 !important;
+}
